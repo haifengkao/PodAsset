@@ -1,0 +1,24 @@
+PODS:
+  - Kiwi (2.4.0)
+  - PodAsset (0.1.0)
+  - TestPod (0.1.0)
+
+DEPENDENCIES:
+  - Kiwi
+  - PodAsset (from `../`)
+  - TestPod (from `../DevelopmentPods/TestPod`)
+
+EXTERNAL SOURCES:
+  PodAsset:
+    :path: ../
+  TestPod:
+    :path: ../DevelopmentPods/TestPod
+
+SPEC CHECKSUMS:
+  Kiwi: f49c9d54b28917df5928fe44968a39ed198cb8a8
+  PodAsset: 6ba2d1192f2846b3081040d844cc959231f5e446
+  TestPod: 5d0c9d803e52cf798a6de50139fed817a6752c27
+
+PODFILE CHECKSUM: 084a9a850b5e8971b5b8e8c197c6811d0808dc5a
+
+COCOAPODS: 1.0.0.beta.6

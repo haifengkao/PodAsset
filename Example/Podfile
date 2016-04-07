@@ -1,11 +1,13 @@
 source 'https://github.com/CocoaPods/Specs.git'
+platform :ios, '8.0'
 use_frameworks!
 
-target 'PodAsset_Example', :exclusive => true do
+target 'PodAsset_Example' do
   pod 'PodAsset', :path => '../'
+  pod 'TestPod', :path => '../DevelopmentPods/TestPod'
 end
 
-target 'PodAsset_Tests', :exclusive => true do
+target 'PodAsset_Tests' do
   pod 'PodAsset', :path => '../'
 
   pod 'Kiwi'
