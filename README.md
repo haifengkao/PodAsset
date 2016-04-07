@@ -8,11 +8,29 @@
 
 ## Usage
 
-Why is it the hard to access assets in third-party pods? 
+Why is it so painful to access the assets in CocoaPods? 
+Pain No More!
+
+Get the damn image:
+```objc
+NSData* data = [PodAsset pathForFilename:@"SomeDamnImage.jpg" pod:@"SomePod"];
+```
+
+Get the damn json:
+```objc
+NSString* jsonString = [PodAsset stringForFilename:@"SomeDamn.json" pod:@"SomePod"];
+```
 
 To run the example project, clone the repo, and run `pod install` from the Example directory first.
 
 ## Requirements
+The resource bundle name, by default, is the pod name. 
+If not, please check the third party pod's podspec and find out the resource bundle name:
+```ruby
+  s.resource_bundles = {
+    'PodAsset' => ['Pod/Assets/*.png']
+  }
+```
 
 ## Installation
 
@@ -22,6 +40,10 @@ it, simply add the following line to your Podfile:
 ```ruby
 pod "PodAsset"
 ```
+
+## How It works
+
+Pod Asset will search all bundles and find the correct one.
 
 ## Author
 
