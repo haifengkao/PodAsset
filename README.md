@@ -13,7 +13,7 @@ Pain No More!
 
 Get the damn image:
 ```objc
-NSData* data = [PodAsset pathForFilename:@"SomeDamnImage.jpg" pod:@"SomePod"];
+NSData* data = [PodAsset dataForFilename:@"SomeDamnImage.jpg" pod:@"SomePod"];
 ```
 
 Get the damn json:
