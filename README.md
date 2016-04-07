@@ -31,6 +31,7 @@ If not, please check the third party pod's podspec and find out the resource bun
     'PodAsset' => ['Pod/Assets/*.png']
   }
 ```
+In the above example, the bundle name is `PodAsset`.
 
 ## Installation
 
