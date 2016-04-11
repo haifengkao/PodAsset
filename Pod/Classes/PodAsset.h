@@ -12,5 +12,10 @@
 + (NSString*)pathForFilename:(NSString*)filename pod:(NSString*)podName;
 + (NSData*)dataForFilename:(NSString*)filename pod:(NSString*)podName;
 + (NSString*)stringForFilename:(NSString*)filename pod:(NSString*)podName;
+
+// returns the resource bundle path for the specified pod  
++ (NSString*)bundlePathForPod:(NSString*)podName;
+
+// returns all assets in the bundle that contains the specified pod 
 + (NSArray*)assetsInPod:(NSString*)podName;
 @end
