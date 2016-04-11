@@ -67,6 +67,26 @@
 }
 
 #pragma mark - private
+
++ (NSArray *)recursivePathsForResourcesOfType:(NSString *)type name:(NSString*)name inDirectory:(NSString *)directoryPath
+{
+
+    NSMutableArray *filePaths = [[NSMutableArray alloc] init];
+    NSDirectoryEnumerator *enumerator = [[NSFileManager defaultManager] enumeratorAtPath:directoryPath];
+
+    NSString *filePath;
+
+    while ((filePath = [enumerator nextObject]) != nil){
+        if (!type || [[filePath pathExtension] isEqualToString:type]){
+            if (!name || [[[filePath lastPathComponent] stringByDeletingPathExtension] isEqualToString:name]){
+                [filePaths addObject:[directoryPath stringByAppendingPathComponent:filePath]];
+            }
+        }
+    }
+
+    return filePaths;
+}
+
 + (NSString*)bundlePathForPod:(NSString*)podName
 {
     // search all bundles
@@ -75,6 +95,13 @@
         if (bundlePath) { return bundlePath; }
     }
 
+    // search all frameworks
+    for (NSBundle* bundle in [NSBundle allBundles]) {
+        NSArray* bundles = [self recursivePathsForResourcesOfType:@"bundle" name:podName inDirectory:[bundle bundlePath]];
+        if (bundles.count > 0) {
+            return bundles.firstObject;
+        } 
+    }
     // some pods do not use "resource_bundles"
     // please check the pod's podspec
     return nil;
@@ -86,6 +113,14 @@
     for (NSBundle* bundle in [NSBundle allBundles]) {
         NSString* bundlePath = [bundle pathForResource:podName ofType:@"bundle"];
         if (bundlePath) { return bundle; }
+    }
+
+    // search all frameworks
+    for (NSBundle* bundle in [NSBundle allBundles]) {
+        NSArray* bundles = [self recursivePathsForResourcesOfType:@"bundle" name:podName inDirectory:[bundle bundlePath]];
+        if (bundles.count > 0) {
+            return bundle;
+        } 
     }
 
     // some pods do not use "resource_bundles"

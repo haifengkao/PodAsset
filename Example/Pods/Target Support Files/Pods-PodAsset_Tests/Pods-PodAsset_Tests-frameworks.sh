@@ -16,7 +16,7 @@ install_framework()
     local source="$1"
   fi
 
-  local destination="${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}"
+  local destination="${CONFIGURATION_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}"
 
   if [ -L "${source}" ]; then
       echo "Symlinked..."
@@ -84,10 +84,10 @@ strip_invalid_archs() {
 
 
 if [[ "$CONFIGURATION" == "Debug" ]]; then
-  install_framework "$BUILT_PRODUCTS_DIR/PodAsset/PodAsset.framework"
-  install_framework "$BUILT_PRODUCTS_DIR/Kiwi/Kiwi.framework"
+  install_framework "Pods-PodAsset_Tests/PodAsset.framework"
+  install_framework "Pods-PodAsset_Tests/Kiwi.framework"
 fi
 if [[ "$CONFIGURATION" == "Release" ]]; then
-  install_framework "$BUILT_PRODUCTS_DIR/PodAsset/PodAsset.framework"
-  install_framework "$BUILT_PRODUCTS_DIR/Kiwi/Kiwi.framework"
+  install_framework "Pods-PodAsset_Tests/PodAsset.framework"
+  install_framework "Pods-PodAsset_Tests/Kiwi.framework"
 fi

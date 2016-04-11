@@ -208,6 +208,7 @@
 				6003F588195388D20070C39A /* Resources */,
 				FC198BE1546E267124444914 /* 📦 Embed Pods Frameworks */,
 				155946DEAEDDF417275AAB7C /* 📦 Copy Pods Resources */,
+				6A0717103067BEB471646EF4 /* Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -228,6 +229,7 @@
 				6003F5AC195388D20070C39A /* Resources */,
 				B41B8414C078AB0237A2F0EA /* 📦 Embed Pods Frameworks */,
 				76EC9EF90749D0C1B4CF9354 /* 📦 Copy Pods Resources */,
+				7D0E74298DFBDCBBB64434DA /* Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -310,6 +312,21 @@
 			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-PodAsset_Example/Pods-PodAsset_Example-resources.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
+		6A0717103067BEB471646EF4 /* Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-PodAsset_Example/Pods-PodAsset_Example-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
 		76EC9EF90749D0C1B4CF9354 /* 📦 Copy Pods Resources */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
@@ -323,6 +340,21 @@
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
 			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-PodAsset_Tests/Pods-PodAsset_Tests-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		7D0E74298DFBDCBBB64434DA /* Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-PodAsset_Tests/Pods-PodAsset_Tests-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 		A09FBE18A5590474709A0F01 /* 📦 Check Pods Manifest.lock */ = {
