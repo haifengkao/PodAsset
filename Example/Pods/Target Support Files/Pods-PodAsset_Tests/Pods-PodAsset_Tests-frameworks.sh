@@ -84,10 +84,12 @@ strip_invalid_archs() {
 
 
 if [[ "$CONFIGURATION" == "Debug" ]]; then
+  install_framework "Pods-PodAsset_Tests/FrameworkPod.framework"
   install_framework "Pods-PodAsset_Tests/PodAsset.framework"
   install_framework "Pods-PodAsset_Tests/Kiwi.framework"
 fi
 if [[ "$CONFIGURATION" == "Release" ]]; then
+  install_framework "Pods-PodAsset_Tests/FrameworkPod.framework"
   install_framework "Pods-PodAsset_Tests/PodAsset.framework"
   install_framework "Pods-PodAsset_Tests/Kiwi.framework"
 fi

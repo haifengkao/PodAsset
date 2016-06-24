@@ -8,37 +8,40 @@
 
 // https://github.com/kiwi-bdd/Kiwi
 
+#import "PodAsset.h"
+#import "hello.h"
+
 SPEC_BEGIN(InitialTests)
 
-describe(@"My initial tests", ^{
+describe(@"Pod asset tests", ^{
+    context(@"will pass", ^{
+        it(@"find the damn resources", ^{
+            NSString* bundlePath  = [[NSBundle bundleForClass:[self class]] pathForResource:@"TestPod" ofType:@"bundle"];
+            NSString* frameworkPath  = [[NSBundle bundleForClass:[self class]] pathForResource:@"FrameworkPod" ofType:@"bundle"];
+            hello* h = [hello new];
+            NSString* frameworkPath2  = [[NSBundle bundleForClass:[h class]] pathForResource:@"FrameworkPod" ofType:@"bundle"];
+            NSLog(@"bundlePath: %@", bundlePath);
+            NSLog(@"frameworkPath: %@", frameworkPath);
 
-  context(@"will fail", ^{
+            NSData* frameData = [PodAsset dataForFilename:@"test2.json" pod:@"FrameworkPod"];
+            NSAssert(frameData, @"should get the data");
 
-      it(@"can do maths", ^{
-          [[@1 should] equal:@2];
-      });
+            NSData* data = [PodAsset dataForFilename:@"test.json" pod:@"TestPod"];
+            NSAssert(data, @"should get the data");
 
-      it(@"can read", ^{
-          [[@"number" should] equal:@"string"];
-      });
-    
-      it(@"will wait and fail", ^{
-          NSObject *object = [[NSObject alloc] init];
-          [[expectFutureValue(object) shouldEventually] receive:@selector(autoContentAccessingProxy)];
-      });
-  });
+            NSString* path = [PodAsset pathForFilename:@"test.json" pod:@"TestPod"];
+            NSLog(@"resource path: %@", path);
 
-  context(@"will pass", ^{
-    
-      it(@"can do maths", ^{
-        [[@1 should] beLessThan:@23];
-      });
-    
-      it(@"can read", ^{
-          [[@"team" shouldNot] containString:@"I"];
-      });  
-  });
-  
+            NSArray* array = [PodAsset assetsInPod:@"TestPod"];
+            [[@(array.count) should] beGreaterThan:@0];
+
+            NSArray* array2 = [PodAsset assetsInPod:@"FrameworkPod"];
+            
+            // PodAsset_Example.app contains both TestPod and FrameworkPod, so the return values should be the content of PodAsset_Example.app
+            [[array should] equal:array2];
+
+        });
+    });
 });
 
 SPEC_END

@@ -1,6 +1,7 @@
 GCC_PREPROCESSOR_DEFINITIONS = $(inherited) COCOAPODS=1
+HEADER_SEARCH_PATHS = $(inherited) "${PODS_ROOT}/Headers/Public" "${PODS_ROOT}/Headers/Public/TestPod"
 LD_RUNPATH_SEARCH_PATHS = $(inherited) '@executable_path/Frameworks' '@loader_path/Frameworks'
-OTHER_CFLAGS = $(inherited) -iquote "$CONFIGURATION_BUILD_DIR/Kiwi.framework/Headers" -iquote "$CONFIGURATION_BUILD_DIR/PodAsset.framework/Headers"
-OTHER_LDFLAGS = $(inherited) -framework "Kiwi" -framework "PodAsset"
+OTHER_CFLAGS = $(inherited) -iquote "$CONFIGURATION_BUILD_DIR/FrameworkPod.framework/Headers" -iquote "$CONFIGURATION_BUILD_DIR/Kiwi.framework/Headers" -iquote "$CONFIGURATION_BUILD_DIR/PodAsset.framework/Headers" -isystem "${PODS_ROOT}/Headers/Public" -isystem "${PODS_ROOT}/Headers/Public/TestPod"
+OTHER_LDFLAGS = $(inherited) -framework "FrameworkPod" -framework "Kiwi" -framework "PodAsset"
 PODS_FRAMEWORK_BUILD_PATH = $(BUILD_DIR)/$(CONFIGURATION)$(EFFECTIVE_PLATFORM_NAME)/Pods-PodAsset_Tests
 PODS_ROOT = ${SRCROOT}/Pods

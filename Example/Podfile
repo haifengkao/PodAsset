@@ -10,6 +10,7 @@ end
 
 target 'PodAsset_Tests', :exclusive => true do
   pod 'PodAsset', :path => '../'
-
+  pod 'TestPod', :path => '../DevelopmentPods/TestPod'
+  pod 'FrameworkPod', :path => '../DevelopmentPods/FrameworkPod'
   pod 'Kiwi'
 end
