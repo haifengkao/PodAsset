@@ -22,6 +22,7 @@ describe(@"Pod asset tests", ^{
             NSString* frameworkPath2  = [[NSBundle bundleForClass:[h class]] pathForResource:@"FrameworkPod" ofType:@"bundle"];
             NSLog(@"bundlePath: %@", bundlePath);
             NSLog(@"frameworkPath: %@", frameworkPath);
+            NSLog(@"frameworkPath2: %@", frameworkPath2);
 
             NSData* frameData = [PodAsset dataForFilename:@"test2.json" pod:@"FrameworkPod"];
             NSAssert(frameData, @"should get the data");
@@ -39,6 +40,18 @@ describe(@"Pod asset tests", ^{
             
             // PodAsset_Example.app contains both TestPod and FrameworkPod, so the return values should be the content of PodAsset_Example.app
             [[array should] equal:array2];
+            
+            // test non-existing file
+            NSData* notExist = [PodAsset dataForFilename:@"no-this-file.json" pod:@"TestPod"];
+            NSAssert(!notExist, @"should not get the data");
+            
+            // test bundle
+            NSBundle* bundle = [PodAsset bundleForPod:@"TestPod"];
+            NSAssert(bundle, @"should get the bundle");
+            
+            // test framework
+            NSBundle* framework = [PodAsset bundleForPod:@"FrameworkPod"];
+            NSAssert(framework, @"should get the framework");
 
         });
     });

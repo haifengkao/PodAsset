@@ -16,6 +16,9 @@
 // returns the resource bundle path for the specified pod  
 + (NSString*)bundlePathForPod:(NSString*)podName;
 
+// return the resource bundle
++ (NSBundle*)bundleForPod:(NSString*)podName;
+
 // returns all assets in the bundle that contains the specified pod 
 + (NSArray*)assetsInPod:(NSString*)podName;
 @end

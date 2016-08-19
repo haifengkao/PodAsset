@@ -33,9 +33,12 @@
     NSString* withoutExtension = [[filename lastPathComponent] stringByDeletingPathExtension];
     NSString* path = [bundle pathForResource:withoutExtension ofType:extension];
 
-    return [NSString stringWithContentsOfFile:path
-                                     encoding:NSUTF8StringEncoding
-                                        error:nil];
+    if (path) {
+        return [NSString stringWithContentsOfFile:path
+                                         encoding:NSUTF8StringEncoding
+                                            error:nil];
+    } 
+    return nil;
 }
 
 + (NSData*)dataForFilename:(NSString*)filename pod:(NSString*)podName
@@ -48,7 +51,10 @@
     NSString* withoutExtension = [[filename lastPathComponent] stringByDeletingPathExtension];
     NSString* path = [bundle pathForResource:withoutExtension ofType:extension];
 
-    return [NSData dataWithContentsOfFile:path options:0 error:nil];
+    if (path) {
+        return [NSData dataWithContentsOfFile:path options:0 error:nil];
+    } 
+    return nil;
 }
 
 + (NSArray*)assetsInPod:(NSString*)podName
@@ -66,6 +72,26 @@
     //}
 }
 
++ (NSBundle*)bundleForPod:(NSString*)podName
+{
+    // search all bundles
+    for (NSBundle* bundle in [NSBundle allBundles]) {
+        NSString* bundlePath = [bundle pathForResource:podName ofType:@"bundle"];
+        if (bundlePath) { return bundle; }
+    }
+
+    // search all frameworks
+    for (NSBundle* bundle in [NSBundle allBundles]) {
+        NSArray* bundles = [self recursivePathsForResourcesOfType:@"bundle" name:podName inDirectory:[bundle bundlePath]];
+        if (bundles.count > 0) {
+            return bundle;
+        } 
+    }
+
+    // some pods do not use "resource_bundles"
+    // please check the pod's podspec
+    return nil;
+}
 #pragma mark - private
 
 + (NSArray *)recursivePathsForResourcesOfType:(NSString *)type name:(NSString*)name inDirectory:(NSString *)directoryPath
@@ -107,24 +133,4 @@
     return nil;
 }
 
-+ (NSBundle*)bundleForPod:(NSString*)podName
-{
-    // search all bundles
-    for (NSBundle* bundle in [NSBundle allBundles]) {
-        NSString* bundlePath = [bundle pathForResource:podName ofType:@"bundle"];
-        if (bundlePath) { return bundle; }
-    }
-
-    // search all frameworks
-    for (NSBundle* bundle in [NSBundle allBundles]) {
-        NSArray* bundles = [self recursivePathsForResourcesOfType:@"bundle" name:podName inDirectory:[bundle bundlePath]];
-        if (bundles.count > 0) {
-            return bundle;
-        } 
-    }
-
-    // some pods do not use "resource_bundles"
-    // please check the pod's podspec
-    return nil;
-}
 @end
