@@ -13,7 +13,13 @@ Pain No More!
 
 Get the damn image:
 ```objc
-NSData* data = [PodAsset dataForFilename:@"SomeDamnImage.jpg" pod:@"SomePod"];
+NSBundle* bundle = [PodAsset bundleForPod:@"SomePod"];
+UIImage* img = [UIImage imageNamed:@"SomeDamnImage.jpg" inBundle:bundle compatibleWithTraitCollection:nil];
+```
+
+Get the damn data:
+```objc
+NSData* data = [PodAsset dataForFilename:@"SomeData.dat" pod:@"SomePod"];
 ```
 
 Get the damn json:
@@ -45,6 +51,22 @@ pod "PodAsset"
 ## How It works
 
 Pod Asset will search all bundles and find the correct one.
+
+If you don't want to use PodAsset, you can still find the correct bundle by `bundleForClass:`.
+
+If the pod is loaded as a dynamic framework, locate its bundle by:
+``` objc
+[NSBundle bundleForClass:[some class which is defined in your pod]]
+```
+
+If the pod is loaded as a static bundle, locate its bundle by:
+``` objc
+[NSBundle mainBundle] 
+```
+or
+``` objc
+[NSBundle bundleForClass:[some class in your app]].
+```
 
 ## Author
 
