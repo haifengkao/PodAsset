@@ -2,4 +2,14 @@
 #
 coverage_service: coveralls
 xcodeproj: Example/PodAsset.xcodeproj
-source_directory: Pod/Classes
+workspace: Example/PodAsset.xcworkspace
+scheme: PodAsset-Example
+
+# cocoapods 1.0 changes the Pod/Classes to PodAsset/classes
+source_directory: PodAsset/Classes
+
+# for slather to choose the correct source code %
+binary_basename: PodAsset
+
+# single command for debugging
+# slather coverage -s --workspace Example/PodAsset.xcworkspace --scheme PodAsset-Example --binary-basename PodAsset
