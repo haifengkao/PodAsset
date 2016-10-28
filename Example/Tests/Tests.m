@@ -29,6 +29,9 @@ describe(@"Pod asset tests", ^{
 
             NSData* data = [PodAsset dataForFilename:@"test.json" pod:@"TestPod"];
             NSAssert(data, @"should get the data");
+            
+            NSString* str = [PodAsset stringForFilename:@"test.json" pod:@"TestPod"];
+            NSAssert(str, @"should get the json string");
 
             NSString* path = [PodAsset pathForFilename:@"test.json" pod:@"TestPod"];
             NSLog(@"resource path: %@", path);
