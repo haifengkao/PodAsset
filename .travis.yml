@@ -4,20 +4,13 @@
 
 language: objective-c
 
-cache:
-  - bundler
-  - cocoapods
-
 install:
-  - bundle install
   # too slow
   #- bundle exec pod repo update --silent
-  - bundle exec pod install --project-directory=Example
+  - pod install --project-directory=Example
 
 script:
   - set -o pipefail && xcodebuild test -workspace Example/PodAsset.xcworkspace -scheme PodAsset-Example -sdk iphonesimulator -destination 'platform=iOS Simulator,name=iPhone 6' ONLY_ACTIVE_ARCH=YES GCC_INSTRUMENT_PROGRAM_FLOW_ARCS=YES GCC_GENERATE_TEST_COVERAGE_FILES=YES | xcpretty -c
 
-# -c means coverall
-# -t means travis
-# -s means simple output
-after_success: slather coverage -c -s -t --verbose
+after_success: 
+  - bash <(curl -s https://codecov.io/bash)
