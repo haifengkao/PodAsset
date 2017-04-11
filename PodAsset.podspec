@@ -29,7 +29,11 @@ Pod::Spec.new do |s|
   s.source           = { :git => "https://github.com/haifengkao/PodAsset.git", :tag => s.version.to_s }
   # s.social_media_url = 'https://twitter.com/<TWITTER_USERNAME>'
 
-  s.platform     = :ios, '7.0'
+  s.ios.deployment_target     = "7.0"
+  s.osx.deployment_target     = "10.12"
+  s.tvos.deployment_target    = "10.1"
+  s.watchos.deployment_target = "3.1"
+
   s.requires_arc = true
 
   s.source_files = 'Pod/Classes/**/*'
