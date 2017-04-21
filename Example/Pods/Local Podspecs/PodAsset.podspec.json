@@ -1,6 +1,6 @@
 {
   "name": "PodAsset",
-  "version": "0.18.0",
+  "version": "0.19.0",
   "summary": "Unable to find cocoapod resources? Here is the solution!",
   "description": "It is a very frustrating experience to locate the resources (assets) provided by the third-party pods.\nPodAsset provides a simple way to load the resources. \nAnd debugging tools if you cannot locate the correct bundles.",
   "homepage": "https://github.com/haifengkao/PodAsset",
@@ -10,7 +10,7 @@
   },
   "source": {
     "git": "https://github.com/haifengkao/PodAsset.git",
-    "tag": "0.18.0"
+    "tag": "0.19.0"
   },
   "platforms": {
     "ios": "7.0",
