@@ -129,13 +129,13 @@
 + (NSString*)bundlePathForPod:(NSString*)podName
 {
     // search all bundles
-    for (NSBundle* bundle in [NSBundle allBundles]) {
+    for (NSBundle* bundle in [NSBundle allFrameworks]) {
         NSString* bundlePath = [bundle pathForResource:podName ofType:@"bundle"];
         if (bundlePath) { return bundlePath; }
     }
 
     // search all frameworks
-    for (NSBundle* bundle in [NSBundle allBundles]) {
+    for (NSBundle* bundle in [NSBundle allFrameworks]) {
         NSArray* bundles = [self recursivePathsForResourcesOfType:@"bundle" name:podName inDirectory:[bundle bundlePath]];
         if (bundles.count > 0) {
             return bundles.firstObject;
