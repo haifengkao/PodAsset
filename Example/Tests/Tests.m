@@ -39,10 +39,10 @@ describe(@"Pod asset tests", ^{
             NSArray* array = [PodAsset assetsInPod:@"TestPod"];
             [[@(array.count) should] beGreaterThan:@0];
 
-            NSArray* array2 = [PodAsset assetsInPod:@"FrameworkPod"];
+            // NSArray* array2 = [PodAsset assetsInPod:@"FrameworkPod"];
             
             // PodAsset_Example.app contains both TestPod and FrameworkPod, so the return values should be the content of PodAsset_Example.app
-            [[array should] equal:array2];
+            // [[array should] equal:array2];
             
             // test non-existing file
             NSData* notExist = [PodAsset dataForFilename:@"no-this-file.json" pod:@"TestPod"];

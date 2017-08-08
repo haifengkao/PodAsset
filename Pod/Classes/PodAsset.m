@@ -114,11 +114,9 @@
     }
 
     // search all frameworks
-    for (NSBundle* bundle in [NSBundle allBundles]) {
-        NSArray* bundles = [self recursivePathsForResourcesOfType:@"bundle" name:podName inDirectory:[bundle bundlePath]];
-        if (bundles.count > 0) {
-            return bundle;
-        } 
+    for (NSBundle* bundle in [NSBundle allFrameworks]) {
+        NSString* bundlePath = [bundle pathForResource:podName ofType:@"bundle"];
+        if (bundlePath) { return bundle; }
     }
 
     // some pods do not use "resource_bundles"
@@ -135,11 +133,9 @@
     }
 
     // search all frameworks
-    for (NSBundle* bundle in [NSBundle allBundles]) {
-        NSArray* bundles = [self recursivePathsForResourcesOfType:@"bundle" name:podName inDirectory:[bundle bundlePath]];
-        if (bundles.count > 0) {
-            return bundles.firstObject;
-        } 
+    for (NSBundle* bundle in [NSBundle allFrameworks]) {
+        NSString* bundlePath = [bundle pathForResource:podName ofType:@"bundle"];
+        if (bundlePath) { return bundlePath; }
     }
     // some pods do not use "resource_bundles"
     // please check the pod's podspec
