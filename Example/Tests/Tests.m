@@ -25,24 +25,43 @@ describe(@"Pod asset tests", ^{
             NSLog(@"frameworkPath2: %@", frameworkPath2);
 
             NSData* frameData = [PodAsset dataForFilename:@"test2.json" pod:@"FrameworkPod"];
-            NSAssert(frameData, @"should get the data");
+            [[@(frameData.length) should] beGreaterThan:@(0)];
 
             NSData* data = [PodAsset dataForFilename:@"test.json" pod:@"TestPod"];
-            NSAssert(data, @"should get the data");
+            [[@(data.length) should] beGreaterThan:@(0)];
             
             NSString* str = [PodAsset stringForFilename:@"test.json" pod:@"TestPod"];
-            NSAssert(str, @"should get the json string");
+            [[@(str.length) should] beGreaterThan:@(0)];
 
             NSString* path = [PodAsset pathForFilename:@"test.json" pod:@"TestPod"];
             NSLog(@"resource path: %@", path);
+            [[@(path.length) should] beGreaterThan:@(0)];
 
+            // PodAsset_Example.app contains TestPod.bundle
+            // so the values of array should be the content of PodAsset_Example.app
             NSArray* array = [PodAsset assetsInPod:@"TestPod"];
-            [[@(array.count) should] beGreaterThan:@0];
-
-            // NSArray* array2 = [PodAsset assetsInPod:@"FrameworkPod"];
+            // the actual content may vary
+            //NSArray* expectedValueForArray = @[ @"PodAsset_Example",
+                                                //@"PlugIns",
+                                                //@"en.lproj",
+                                                //@"_CodeSignature",
+                                                //@"Frameworks",
+                                                //@"Info.plist",
+                                                //@"Main.storyboardc",
+                                                //@"PkgInfo",
+                                                //@"TestPod.bundle" ];
             
-            // PodAsset_Example.app contains both TestPod and FrameworkPod, so the return values should be the content of PodAsset_Example.app
-            // [[array should] equal:array2];
+            [[@(array.count) should] beGreaterThan:@(0)];
+
+            // FrameworkPod.framework contains FrameworkPod.bundle, 
+            // so the values of array2 should be the content of FrameworkPod.framework
+            NSArray* array2 = [PodAsset assetsInPod:@"FrameworkPod"];
+            // the actual content may vary
+            //NSArray* expectedValueForArray2 = @[ @"FrameworkPod",
+                                                 //@"_CodeSignature",
+                                                 //@"FrameworkPod.bundle",
+                                                 //@"Info.plist"];
+            [[@(array.count) should] beGreaterThan:@(0)];
             
             // test non-existing file
             NSData* notExist = [PodAsset dataForFilename:@"no-this-file.json" pod:@"TestPod"];
