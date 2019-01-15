@@ -8,8 +8,8 @@
 
 Pod::Spec.new do |s|
   s.name             = "PodAsset"
-  s.version          = "0.22.0"
-  s.summary          = "Unable to find cocoapod resources? Here is the solution!"
+  s.version          = "1.0.0"
+  s.summary          = "Unable to find cocoapods resources? Here is the solution!"
 
 # This description is used to generate tags and improve search results.
 #   * Think: What does it do? Why did you write it? What is the focus?
