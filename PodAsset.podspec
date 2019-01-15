@@ -32,7 +32,6 @@ Pod::Spec.new do |s|
   s.ios.deployment_target     = "7.0"
   s.osx.deployment_target     = "10.12"
   s.tvos.deployment_target    = "10.1"
-  s.watchos.deployment_target = "3.1"
 
   s.requires_arc = true
 
