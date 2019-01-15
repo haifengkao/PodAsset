@@ -1,7 +1,7 @@
 {
   "name": "PodAsset",
-  "version": "0.22.0",
-  "summary": "Unable to find cocoapod resources? Here is the solution!",
+  "version": "1.0.0",
+  "summary": "Unable to find cocoapods resources? Here is the solution!",
   "description": "It is a very frustrating experience to locate the resources (assets) provided by the third-party pods.\nPodAsset provides a simple way to load the resources. \nAnd debugging tools if you cannot locate the correct bundles.",
   "homepage": "https://github.com/haifengkao/PodAsset",
   "license": "MIT",
@@ -10,13 +10,12 @@
   },
   "source": {
     "git": "https://github.com/haifengkao/PodAsset.git",
-    "tag": "0.22.0"
+    "tag": "1.0.0"
   },
   "platforms": {
     "ios": "7.0",
     "osx": "10.12",
-    "tvos": "10.1",
-    "watchos": "3.1"
+    "tvos": "10.1"
   },
   "requires_arc": true,
   "source_files": "Pod/Classes/**/*"

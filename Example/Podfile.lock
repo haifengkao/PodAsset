@@ -1,7 +1,7 @@
 PODS:
   - FrameworkPod (0.1.0)
   - Kiwi (2.4.0)
-  - PodAsset (0.22.0)
+  - PodAsset (1.0.0)
   - TestPod (0.1.0)
 
 DEPENDENCIES:
@@ -12,18 +12,18 @@ DEPENDENCIES:
 
 EXTERNAL SOURCES:
   FrameworkPod:
-    :path: "../DevelopmentPods/FrameworkPod"
+    :path: ../DevelopmentPods/FrameworkPod
   PodAsset:
-    :path: "../"
+    :path: ../
   TestPod:
-    :path: "../DevelopmentPods/TestPod"
+    :path: ../DevelopmentPods/TestPod
 
 SPEC CHECKSUMS:
-  FrameworkPod: 2e6811638675ec1bf2c572b5e37b7a7f897fc2ec
+  FrameworkPod: e487d429b7581a724c2c2181bd10bda98c47cb34
   Kiwi: f49c9d54b28917df5928fe44968a39ed198cb8a8
-  PodAsset: d9d35b6a86ceaeaead63692a1bce27b4aea243b3
-  TestPod: 5d0c9d803e52cf798a6de50139fed817a6752c27
+  PodAsset: 2fd47adb9d8065e66f243927a00ee6c2924f0d01
+  TestPod: 7743608c9793443d78032445ee8ae1b86df5088b
 
 PODFILE CHECKSUM: 18f0cc67b47687e987bb83fd6611c9e99590b60f
 
-COCOAPODS: 1.2.1
+COCOAPODS: 1.4.0
