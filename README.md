@@ -12,18 +12,40 @@ Why is it so painful to access the assets in CocoaPods?
 Pain No More!
 
 Get the damn image:
+```Swift
+// Swift
+import PodAsset
+
+let bundle = PodAsset.bundle(forPod: "SomePod")
+let img = UIImage(named: "SomeDamnImage", in:bundle, compatibleWith:nil)
+```
+
 ```objc
+// Objective-C
+@import PodAsset;
+
 NSBundle* bundle = [PodAsset bundleForPod:@"SomePod"];
-UIImage* img = [UIImage imageNamed:@"SomeDamnImage.jpg" inBundle:bundle compatibleWithTraitCollection:nil];
+UIImage* img = [UIImage imageNamed:@"SomeDamnImage" inBundle:bundle compatibleWithTraitCollection:nil];
 ```
 
 Get the damn data:
-```objc
-NSData* data = [PodAsset dataForFilename:@"SomeData.dat" pod:@"SomePod"];
+```swift
+// Swift
+let data = PodAsset.data(forFilename: "SomeData.dat", pod: "SomePod")
 ```
 
-Get the damn json:
 ```objc
+// Objective-C
+NSData* data = [PodAsset dataForFilename:@"SomeData.dat" pod:@"SomePod"];
+```
+Get the damn json:
+```swift
+// Swift
+let jsonString = PodAsset.string(forFilename: "SomeDamn.json", pod: "SomePod")
+```
+
+```objc
+// Objective-C
 NSString* jsonString = [PodAsset stringForFilename:@"SomeDamn.json" pod:@"SomePod"];
 ```
 
