@@ -305,7 +305,7 @@
 			files = (
 			);
 			inputPaths = (
-				"${SRCROOT}/Pods/Target Support Files/Pods-PodAsset_Tests/Pods-PodAsset_Tests-frameworks.sh",
+				"${PODS_ROOT}/Target Support Files/Pods-PodAsset_Tests/Pods-PodAsset_Tests-frameworks.sh",
 				"${BUILT_PRODUCTS_DIR}/FrameworkPod/FrameworkPod.framework",
 				"${BUILT_PRODUCTS_DIR}/PodAsset/PodAsset.framework",
 				"${BUILT_PRODUCTS_DIR}/Kiwi/Kiwi.framework",
@@ -318,7 +318,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-PodAsset_Tests/Pods-PodAsset_Tests-frameworks.sh\"\n";
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-PodAsset_Tests/Pods-PodAsset_Tests-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 		6F74A433208042E8B7342AB8 /* [CP] Embed Pods Frameworks */ = {
@@ -327,7 +327,7 @@
 			files = (
 			);
 			inputPaths = (
-				"${SRCROOT}/Pods/Target Support Files/Pods-PodAsset_Example/Pods-PodAsset_Example-frameworks.sh",
+				"${PODS_ROOT}/Target Support Files/Pods-PodAsset_Example/Pods-PodAsset_Example-frameworks.sh",
 				"${BUILT_PRODUCTS_DIR}/FrameworkPod/FrameworkPod.framework",
 				"${BUILT_PRODUCTS_DIR}/PodAsset/PodAsset.framework",
 			);
@@ -338,7 +338,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-PodAsset_Example/Pods-PodAsset_Example-frameworks.sh\"\n";
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-PodAsset_Example/Pods-PodAsset_Example-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 		7B228197E5E056403CACFDB9 /* [CP] Check Pods Manifest.lock */ = {
@@ -365,7 +365,7 @@
 			files = (
 			);
 			inputPaths = (
-				"${SRCROOT}/Pods/Target Support Files/Pods-PodAsset_Example/Pods-PodAsset_Example-resources.sh",
+				"${PODS_ROOT}/Target Support Files/Pods-PodAsset_Example/Pods-PodAsset_Example-resources.sh",
 				"${PODS_CONFIGURATION_BUILD_DIR}/TestPod/TestPod.bundle",
 			);
 			name = "[CP] Copy Pods Resources";
@@ -374,7 +374,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-PodAsset_Example/Pods-PodAsset_Example-resources.sh\"\n";
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-PodAsset_Example/Pods-PodAsset_Example-resources.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 		B5D1059571EDD7B4551000AC /* [CP] Check Pods Manifest.lock */ = {
@@ -401,7 +401,7 @@
 			files = (
 			);
 			inputPaths = (
-				"${SRCROOT}/Pods/Target Support Files/Pods-PodAsset_Tests/Pods-PodAsset_Tests-resources.sh",
+				"${PODS_ROOT}/Target Support Files/Pods-PodAsset_Tests/Pods-PodAsset_Tests-resources.sh",
 				"${PODS_CONFIGURATION_BUILD_DIR}/TestPod/TestPod.bundle",
 			);
 			name = "[CP] Copy Pods Resources";
@@ -410,7 +410,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-PodAsset_Tests/Pods-PodAsset_Tests-resources.sh\"\n";
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-PodAsset_Tests/Pods-PodAsset_Tests-resources.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 /* End PBXShellScriptBuildPhase section */
