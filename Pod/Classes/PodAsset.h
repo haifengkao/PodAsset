@@ -9,16 +9,17 @@
 #import <Foundation/Foundation.h>
 
 @interface PodAsset : NSObject
-+ (NSString*)pathForFilename:(NSString*)filename pod:(NSString*)podName;
-+ (NSData*)dataForFilename:(NSString*)filename pod:(NSString*)podName;
-+ (NSString*)stringForFilename:(NSString*)filename pod:(NSString*)podName;
++ (nullable NSURL*)urlForFilename:(nonnull NSString*)filename pod:(nonnull NSString*)podName;
++ (nullable NSString*)pathForFilename:(nonnull NSString*)filename pod:(nonnull NSString*)podName;
++ (nullable NSData*)dataForFilename:(nonnull NSString*)filename pod:(nonnull NSString*)podName;
++ (nullable NSString*)stringForFilename:(nonnull NSString*)filename pod:(nonnull NSString*)podName;
 
 // returns the resource bundle path for the specified pod  
-+ (NSString*)bundlePathForPod:(NSString*)podName;
++ (nullable NSString*)bundlePathForPod:(nonnull NSString*)podName;
 
 // return the resource bundle
-+ (NSBundle*)bundleForPod:(NSString*)podName;
++ (nullable NSBundle*)bundleForPod:(nonnull NSString*)podName;
 
 // returns all assets in the bundle that contains the specified pod 
-+ (NSArray*)assetsInPod:(NSString*)podName;
++ (nullable NSArray*)assetsInPod:(nonnull NSString*)podName;
 @end

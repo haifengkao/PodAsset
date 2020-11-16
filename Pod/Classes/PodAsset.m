@@ -10,6 +10,20 @@
 
 @implementation PodAsset
 
++ (NSURL*)urlForFilename:(NSString*)filename pod:(NSString*)podName
+{
+    NSString* bundlePath  = [self bundlePathForPod:podName];
+    if (!bundlePath) { return nil; }
+
+    NSBundle* bundle = [NSBundle bundleWithPath:bundlePath];
+    NSString* extension = [filename pathExtension];
+    NSString* withoutExtension = [[filename lastPathComponent] stringByDeletingPathExtension];
+    NSURL* url = [bundle URLForResource:withoutExtension withExtension:extension];
+    
+    return url;
+}
+
+
 + (NSString*)pathForFilename:(NSString*)filename pod:(NSString*)podName
 {
     NSString* bundlePath  = [self bundlePathForPod:podName];
